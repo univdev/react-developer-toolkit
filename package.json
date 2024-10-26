@@ -1,7 +1,21 @@
 {
   "name": "vscode-react-developer-toolkit",
-  "displayName": "vscode-react-developer-toolkit",
-  "description": "",
+  "displayName": "React Toolkit for Developers",
+  "description": "Toolkit to perform tasks for React developers",
+  "publisher": "univdev",
+  "author": {
+    "name": "univdev",
+    "email": "pcydeveloper@gmail.com",
+    "url": "https://github.com/univdev"
+  },
+  "icon": "images/icon.webp",
+  "galleryBanner": {
+    "color": "#C80000",
+    "theme": "dark"
+  },
+  "homepage": "https://github.com/univdev/vscode-react-developer-toolkit/blob/master/README.md",
+  "license": "SEE LICENSE IN LICENSE",
+  "pricing": "Free",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.94.0"
@@ -73,24 +87,32 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "pnpm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "pretest": "pnpm run compile && pnpm run lint",
-    "lint": "eslint src",
-    "test": "vscode-test"
+    "compile": "npm run check-types && node esbuild.js",
+    "check-types": "tsc --noEmit",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "vscode:prepublish": "npm run package",
+    "package": "npm run check-types && node esbuild.js --production",
+    "vsce:package": "pnpm vsce package --no-dependencies"
   },
   "devDependencies": {
-    "@types/mocha": "^10.0.9",
     "@types/node": "20.x",
-    "@types/sinon": "^17.0.3",
     "@types/vscode": "^1.94.0",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
     "@typescript-eslint/parser": "^8.7.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
+    "esbuild": "^0.24.0",
     "eslint": "^9.13.0",
-    "sinon": "^19.0.2",
     "typescript": "^5.6.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/univdev/vscode-react-developer-toolkit"
+  },
+  "bugs": {
+    "url": "https://github.com/univdev/vscode-react-developer-toolkit/issues",
+    "email": "pcydeveloper@gmail.com"
   }
 }
