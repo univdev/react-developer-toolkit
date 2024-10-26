@@ -1,3 +1,3 @@
-export const barrelFileFactory = (componentName: string) => {
-  return `export * from './${componentName}';`;
+export const barrelFileFactory = (fileName: string) => {
+  return `export * from './${fileName}';`;
 };

@@ -24,6 +24,14 @@
       {
         "command": "vscode-react-developer-toolkit.createReactHOC",
         "title": "Create React HOC"
+      },
+      {
+        "command": "vscode-react-developer-toolkit.createReactContext",
+        "title": "Create React Context"
+      },
+      {
+        "command": "vscode-react-developer-toolkit.createReactProvider",
+        "title": "Create React Provider"
       }
     ],
     "menus": {
@@ -45,6 +53,14 @@
         },
         {
           "command": "vscode-react-developer-toolkit.createReactHOC",
+          "group": "1_create"
+        },
+        {
+          "command": "vscode-react-developer-toolkit.createReactProvider",
+          "group": "1_create"
+        },
+        {
+          "command": "vscode-react-developer-toolkit.createReactContext",
           "group": "1_create"
         }
       ]
