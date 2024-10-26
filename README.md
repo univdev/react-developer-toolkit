@@ -16,7 +16,7 @@ The extension offers the following commands, accessible through the Explorer con
 
 1. Open Visual Studio Code
 2. Go to the Extensions view (Ctrl+Shift+X)
-3. Search for "VSCode React Developer Toolkit"
+3. Search for "React Toolkit for Developers (or univdev)"
 4. Click Install
 
 ## Usage
@@ -42,7 +42,3 @@ There are currently no known issues. If you encounter any problems, please repor
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This extension is licensed under the [MIT License](LICENSE.md).
