@@ -1,7 +1,21 @@
 {
   "name": "vscode-react-developer-toolkit",
-  "displayName": "vscode-react-developer-toolkit",
-  "description": "",
+  "displayName": "React Toolkit for Developers",
+  "description": "Toolkit to perform tasks for React developers",
+  "publisher": "univdev",
+  "author": {
+    "name": "univdev",
+    "email": "pcydeveloper@gmail.com",
+    "url": "https://github.com/univdev"
+  },
+  "icon": "images/icon.webp",
+  "galleryBanner": {
+    "color": "#C80000",
+    "theme": "dark"
+  },
+  "homepage": "https://github.com/univdev/vscode-react-developer-toolkit/blob/master/README.md",
+  "license": "SEE LICENSE IN LICENSE",
+  "pricing": "Free",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.94.0"
@@ -10,40 +24,95 @@
     "Other"
   ],
   "activationEvents": [],
-  "main": "./dist/extension.js",
+  "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "vscode-react-developer-toolkit.helloWorld",
-        "title": "Hello World"
+        "command": "vscode-react-developer-toolkit.createReactComponent",
+        "title": "Create React Component"
+      },
+      {
+        "command": "vscode-react-developer-toolkit.createReactHook",
+        "title": "Create React Hook"
+      },
+      {
+        "command": "vscode-react-developer-toolkit.createReactHOC",
+        "title": "Create React HOC"
+      },
+      {
+        "command": "vscode-react-developer-toolkit.createReactContext",
+        "title": "Create React Context"
+      },
+      {
+        "command": "vscode-react-developer-toolkit.createReactProvider",
+        "title": "Create React Provider"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "explorerResourceIsFolder",
+          "group": "navigation",
+          "submenu": "reactDeveloperToolkit"
+        }
+      ],
+      "reactDeveloperToolkit": [
+        {
+          "command": "vscode-react-developer-toolkit.createReactComponent",
+          "group": "1_create"
+        },
+        {
+          "command": "vscode-react-developer-toolkit.createReactHook",
+          "group": "1_create"
+        },
+        {
+          "command": "vscode-react-developer-toolkit.createReactHOC",
+          "group": "1_create"
+        },
+        {
+          "command": "vscode-react-developer-toolkit.createReactProvider",
+          "group": "1_create"
+        },
+        {
+          "command": "vscode-react-developer-toolkit.createReactContext",
+          "group": "1_create"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "reactDeveloperToolkit",
+        "label": "React Developer Toolkit"
       }
     ]
   },
   "scripts": {
-    "vscode:prepublish": "pnpm run package",
-    "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
+    "compile": "npm run check-types && node esbuild.js",
+    "check-types": "tsc --noEmit",
     "watch": "npm-run-all -p watch:*",
     "watch:esbuild": "node esbuild.js --watch",
     "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
-    "package": "pnpm run check-types && pnpm run lint && node esbuild.js --production",
-    "compile-tests": "tsc -p . --outDir out",
-    "watch-tests": "tsc -p . -w --outDir out",
-    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
-    "check-types": "tsc --noEmit",
-    "lint": "eslint src",
-    "test": "vscode-test"
+    "vscode:prepublish": "npm run package",
+    "package": "npm run check-types && node esbuild.js --production",
+    "vsce:package": "pnpm vsce package --no-dependencies"
   },
   "devDependencies": {
-    "@types/vscode": "^1.94.0",
-    "@types/mocha": "^10.0.9",
     "@types/node": "20.x",
+    "@types/vscode": "^1.94.0",
     "@typescript-eslint/eslint-plugin": "^8.10.0",
     "@typescript-eslint/parser": "^8.7.0",
-    "eslint": "^9.13.0",
-    "esbuild": "^0.24.0",
-    "npm-run-all": "^4.1.5",
-    "typescript": "^5.6.3",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
+    "@vscode/test-electron": "^2.4.1",
+    "esbuild": "^0.24.0",
+    "eslint": "^9.13.0",
+    "typescript": "^5.6.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/univdev/vscode-react-developer-toolkit"
+  },
+  "bugs": {
+    "url": "https://github.com/univdev/vscode-react-developer-toolkit/issues",
+    "email": "pcydeveloper@gmail.com"
   }
 }
