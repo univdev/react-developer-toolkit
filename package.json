@@ -16,6 +16,14 @@
       {
         "command": "vscode-react-developer-toolkit.createReactComponent",
         "title": "Create React Component"
+      },
+      {
+        "command": "vscode-react-developer-toolkit.createReactHook",
+        "title": "Create React Hook"
+      },
+      {
+        "command": "vscode-react-developer-toolkit.createReactHOC",
+        "title": "Create React HOC"
       }
     ],
     "menus": {
@@ -29,6 +37,14 @@
       "reactDeveloperToolkit": [
         {
           "command": "vscode-react-developer-toolkit.createReactComponent",
+          "group": "1_create"
+        },
+        {
+          "command": "vscode-react-developer-toolkit.createReactHook",
+          "group": "1_create"
+        },
+        {
+          "command": "vscode-react-developer-toolkit.createReactHOC",
           "group": "1_create"
         }
       ]
