@@ -4,15 +4,26 @@ import * as fs from 'fs';
 import { reactComponentFactory } from '../factory/ReactComponent.factory';
 import { barrelFileFactory } from '../factory/BarrelFile.factory';
 
-export const createReactComponent = (dirPath: string, componentName: string) => {
-  vscode.window.showInformationMessage(dirPath, componentName);
+export const createReactComponentCommand = (uri: vscode.Uri) => {
+  if (uri && uri.fsPath) {
+    const dirPath = uri.fsPath;
 
-  const componentDir = path.join(dirPath, componentName);
-  fs.mkdirSync(componentDir);
+    vscode.window.showInputBox({ 
+      prompt: 'Enter React component name',
+      placeHolder: 'MyComponent'
+    }).then(componentName => {
+      if (componentName) {
+        vscode.window.showInformationMessage(dirPath, componentName);
 
-  const componentContent = reactComponentFactory(componentName);
-  const barrelFileContent = barrelFileFactory(componentName);
-
-  fs.writeFileSync(path.join(componentDir, `${componentName}.tsx`), componentContent);
-  fs.writeFileSync(path.join(componentDir, `index.ts`), barrelFileContent);
+        const componentDir = path.join(dirPath, componentName);
+        fs.mkdirSync(componentDir);
+      
+        const componentContent = reactComponentFactory(componentName);
+        const barrelFileContent = barrelFileFactory(componentName);
+      
+        fs.writeFileSync(path.join(componentDir, `${componentName}.tsx`), componentContent);
+        fs.writeFileSync(path.join(componentDir, `index.ts`), barrelFileContent);
+      }
+    });
+  }
 };

@@ -15,12 +15,11 @@ export default [{
     },
 
     rules: {
+        'curly': ['error', 'multi-line'],
         "@typescript-eslint/naming-convention": ["warn", {
             selector: "import",
             format: ["camelCase", "PascalCase"],
         }],
-
-        curly: "warn",
         eqeqeq: "warn",
         "no-throw-literal": "warn",
         semi: "warn",
