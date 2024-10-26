@@ -13,8 +13,6 @@ export const createReactComponentCommand = (uri: vscode.Uri) => {
       placeHolder: 'MyComponent'
     }).then(componentName => {
       if (componentName) {
-        vscode.window.showInformationMessage(dirPath, componentName);
-
         const componentDir = path.join(dirPath, componentName);
         fs.mkdirSync(componentDir);
       
