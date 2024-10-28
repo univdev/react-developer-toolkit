@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import { createReactComponentCommand } from "../commands/CreateReactComponent.command";
-import { createReactHookCommand } from '../commands/CreateReactHook.factory';
+import { createReactHookCommand } from '../commands/CreateReactHook.command';
 import { createReactHOCCommand } from '../commands/CreateReactHOC.command';
 import { createReactProviderCommand } from '../commands/CreateReactProvider.command';
 import { createReactContextCommand } from '../commands/CreateReactContext.command';
