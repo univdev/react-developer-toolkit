@@ -1,14 +1,14 @@
-export const createReactProviderFactory = (contextName: string) => `import { FC } from "react";
+export const createReactProviderFactory = (providerName: string) => `import { FC } from "react";
 
-export type ITestProviderProps = {
+export type I${providerName}Props = {
   // Enter provider props
 };
 
-export const TestProvider: FC<ITestProviderProps> = () => {
+export const ${providerName}Provider: FC<I${providerName}Props> = () => {
   return (
 
   );
 };
 
-export default TestProvider;
+export default ${providerName}Provider;
 `;
