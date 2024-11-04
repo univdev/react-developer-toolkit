@@ -36,10 +36,13 @@ jobs:
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: pnpm install
 
+      - name: Install vsce
+        run: npm i -g @vscode/vsce
+
       - name: Package extension
         run: pnpm vscode:prepublish && pnpm vsce:package
 
-      - name: Publish to Marketplace
+      - name: Publish
+        run: pnpm vsce:deploy
         env:
-          VSCE_TOKEN: ${{ secrets.VSCE_TOKEN }}
-        run: vsce publish
+          VSCE_PAT: ${{ secrets.VSCE_TOKEN }}
