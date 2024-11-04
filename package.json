@@ -16,7 +16,7 @@
   "homepage": "https://github.com/univdev/vscode-react-developer-toolkit/blob/master/README.md",
   "license": "SEE LICENSE IN LICENSE",
   "pricing": "Free",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.94.0"
   },
@@ -94,7 +94,8 @@
     "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
     "vscode:prepublish": "npm run package",
     "package": "npm run check-types && node esbuild.js --production",
-    "vsce:package": "pnpm vsce package --no-dependencies"
+    "vsce:package": "pnpm vsce package --no-dependencies",
+    "vsce:deploy": "vsce publish --no-dependencies"
   },
   "devDependencies": {
     "@types/node": "20.x",
